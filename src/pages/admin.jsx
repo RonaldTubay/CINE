@@ -30,10 +30,14 @@ function Admin() {
     peliculas.push(pelicula);
     localStorage.setItem('peliculas', JSON.stringify(peliculas));
 
-    // Opcional: Mostrar un mensaje de éxito o reiniciar el formulario
+    // Mostrar un mensaje de éxito
     alert('Película agregada correctamente');
 
     // Resetear el formulario
+    resetForm();
+  };
+
+  const resetForm = () => {
     setTitulo('');
     setDuracion('');
     setGenero('');
@@ -45,29 +49,73 @@ function Admin() {
   };
 
   return (
-    <div>
-      <header>Agregar Nueva Película</header>
+    <div className="agregar-pelicula"> {/* Añadido para aplicar estilos */}
+      <header>
+        <h2>Agregar Nueva Película</h2> {/* Título del formulario */}
+      </header>
       <form id="form-pelicula" onSubmit={handleSubmit}>
         <label htmlFor="titulo">Título:</label>
-        <input type="text" id="titulo" value={titulo} onChange={(e) => setTitulo(e.target.value)} required /><br />
+        <input
+          type="text"
+          id="titulo"
+          value={titulo}
+          onChange={(e) => setTitulo(e.target.value)}
+          required
+        />
 
         <label htmlFor="duracion">Duración:</label>
-        <input type="text" id="duracion" value={duracion} onChange={(e) => setDuracion(e.target.value)} required /><br />
+        <input
+          type="text"
+          id="duracion"
+          value={duracion}
+          onChange={(e) => setDuracion(e.target.value)}
+          required
+        />
 
         <label htmlFor="genero">Género:</label>
-        <input type="text" id="genero" value={genero} onChange={(e) => setGenero(e.target.value)} required /><br />
+        <input
+          type="text"
+          id="genero"
+          value={genero}
+          onChange={(e) => setGenero(e.target.value)}
+          required
+        />
 
         <label htmlFor="clasificacion">Clasificación:</label>
-        <input type="text" id="clasificacion" value={clasificacion} onChange={(e) => setClasificacion(e.target.value)} required /><br />
+        <input
+          type="text"
+          id="clasificacion"
+          value={clasificacion}
+          onChange={(e) => setClasificacion(e.target.value)}
+          required
+        />
 
         <label htmlFor="formato">Formato:</label>
-        <input type="text" id="formato" value={formato} onChange={(e) => setFormato(e.target.value)} required /><br />
+        <input
+          type="text"
+          id="formato"
+          value={formato}
+          onChange={(e) => setFormato(e.target.value)}
+          required
+        />
 
         <label htmlFor="horario">Horario:</label>
-        <input type="text" id="horario" value={horario} onChange={(e) => setHorario(e.target.value)} required /><br />
+        <input
+          type="text"
+          id="horario"
+          value={horario}
+          onChange={(e) => setHorario(e.target.value)}
+          required
+        />
 
         <label htmlFor="sala">Sala:</label>
-        <input type="text" id="sala" value={sala} onChange={(e) => setSala(e.target.value)} required /><br />
+        <input
+          type="text"
+          id="sala"
+          value={sala}
+          onChange={(e) => setSala(e.target.value)}
+          required
+        />
 
         <label htmlFor="portada">Imagen de la portada:</label>
         <input
@@ -76,9 +124,10 @@ function Admin() {
           accept="image/*"
           onChange={(e) => setPortada(e.target.files[0])}
           required
-        /><br />
+        />
 
         <button type="submit">Agregar Película</button>
+        
       </form>
     </div>
   );

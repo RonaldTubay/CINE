@@ -1,35 +1,32 @@
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom'; // Importa useNavigate y Link
+import { useNavigate, Link } from 'react-router-dom';
 import '../css/login.css'; // Asegúrate de tener los estilos
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate(); // Inicializa el hook
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
-    // Establece las credenciales del administrador
-    const adminEmail = "admin@example.com"; // Cambia esto al correo del administrador
-    const adminPassword = "admin123"; // Cambia esto a la contraseña del administrador
+    const adminEmail = "admin@example.com";
+    const adminPassword = "admin123";
 
-    // Verifica si las credenciales son las del administrador
     if (email === adminEmail && password === adminPassword) {
       alert("Bienvenido, Administrador.");
-      navigate("/admin"); // Redirigir al admin
+      navigate("/admin");
       return;
     }
 
-    // Verifica las credenciales del usuario normal
     const usuario = usuarios.find(user => user.email === email && user.clave === password);
 
     if (usuario) {
       if (usuario.rol === "Cliente") {
         alert("Bienvenido, Cliente.");
-        navigate("/portal"); // Redirigir al portal usando navigate
+        navigate("/portal");
       }
     } else {
       alert("Correo o contraseña incorrectos, o no estás registrado.");
@@ -51,12 +48,14 @@ function Login() {
             <li><a href="#servicios">Servicios</a></li>
             <li><a href="#planes">Planes</a></li>
             <li><a href="#contacto">Contacto</a></li>
+            {/* Botón de registro en la barra de navegación */}
+            <li>
+              <Link to="/registro">
+                <button id="registro">Regístrate</button>
+              </Link>
+            </li>
           </ul>
         </nav>
-        {/* Usar Link para redirigir al registro */}
-        <Link to="/registro">
-          <button id="registro">Regístrate</button>
-        </Link>
       </header>
       <div>
         <h2>¡Inicia Sesión!</h2>

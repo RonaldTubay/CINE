@@ -31,7 +31,8 @@ header {
 /* Navegación */
 nav {
     display: flex;
-    margin-left: 20px;
+    align-items: center; /* Centrar verticalmente */
+    flex-grow: 1; /* Permite que la barra de navegación ocupe el espacio disponible */
 }
 
 nav ul {
@@ -39,6 +40,7 @@ nav ul {
     padding: 0;
     margin: 0;
     display: flex;
+    flex-grow: 1; /* Permite que el menú ocupe el espacio disponible */
 }
 
 nav li {
@@ -64,6 +66,7 @@ nav a:hover {
     border: none;
     border-radius: 12px;
     transition: background 0.3s; /* Añadir transición */
+    margin-left: auto; /* Empuja el botón hacia la derecha */
 }
 
 #registro:hover {
