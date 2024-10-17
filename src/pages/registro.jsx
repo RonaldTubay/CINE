@@ -41,6 +41,18 @@ function Registro() {
     localStorage.setItem("usuarios", JSON.stringify(usuarios));
 
     alert("Registro exitoso. Serás redirigido al inicio de sesión.");
+    
+    // Limpiar los campos después del registro
+    setNombre('');
+    setApellido('');
+    setSexo('');
+    setCedula('');
+    setTelefono('');
+    setFechaNacimiento('');
+    setEmail('');
+    setClave('');
+    setClave1('');
+
     navigate("/login"); // Redirigir usando navigate
   };
 
